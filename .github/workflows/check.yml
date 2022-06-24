@@ -1,17 +1,14 @@
-name: check
-
-on:
-  push:
-    branches:
-      - main
+name: Project test & build
 
 jobs:
-  build:
+  build-and-deploy:
     steps:
-      - name: Install
-        run: npm install
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+        with:
+          persist-credentials: false
 
-      - name: Get key
-        env:
-          CI: true
-          API_key: ${{ secrets.WEATHER_KEY }}
+      - name: Install 🔧
+        run: npm install
+        with:
+          secret_key: ${{ secrets.WEATHER_KEY }}
