@@ -1,0 +1,13 @@
+name: check
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    steps:
+      env:
+        CI: true
+        API_key: ${{ secrets.weather_key }}
