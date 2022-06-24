@@ -8,6 +8,10 @@ on:
 jobs:
   build:
     steps:
-      env:
-        CI: true
-        API_key: ${{ secrets.weather_key }}
+      - name: Install
+        run: npm install
+
+      - name: Get key
+        env:
+          CI: true
+          API_key: ${{ secrets.WEATHER_KEY }}
