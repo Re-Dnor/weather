@@ -15,5 +15,5 @@ jobs:
 
       - name: Install 🔧
         run: npm install
-        with:
+        env:
           secret_key: ${{ secrets.WEATHER_KEY }}
