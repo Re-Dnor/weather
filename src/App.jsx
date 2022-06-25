@@ -8,7 +8,7 @@ const App = () => {
   const [weatherData, setWeatherData] = useState({})
   const [errorFeedback, setErrorFeedback] = useState('');
 
-  const handleSubmitForm = (value) => {
+  const handleSubmitForm = (value, setStateCity) => {
 
     getData(value)
     .then((xml) => {
@@ -27,6 +27,7 @@ const App = () => {
       })
 
       setErrorFeedback('')
+      setStateCity('')
     })
     .catch((error) => {
       console.log(error)

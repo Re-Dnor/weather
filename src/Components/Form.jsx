@@ -1,20 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import cn from "classnames";
 
 const Form = (props) => {
   const {handleSubmitForm, errorFeedback} = props;
-
+  const [city, setStateCity] = useState('');
   const classNamaFeedback = cn('feedback m-0 position-absolute medium', errorFeedback? 'text-danger' :'text-success')
 
   const submitForm = (e) => {
     e.preventDefault();
 
-    const documentForm = e.target;
-    const inputFormValue = documentForm.querySelector('input').value;
-    
-    handleSubmitForm(inputFormValue);
+    handleSubmitForm(city, setStateCity);
+  }
 
-    e.target.reset()
+  const handleInputChange = (e) => {
+    setStateCity(e.target.value);
   }
 
   return (
@@ -36,12 +35,14 @@ const Form = (props) => {
                     required
                     placeholder="RSS Ссылка"
                     autoComplete="off"
+                    value={city}
+                    onChange={handleInputChange}
                   />
                   <label className="text-dark" htmlFor="input_1">City</label>
                 </div>
               </div>
               <button type="submit" id="btn-submit" className="col-auto btn btn-lg btn-info px-5 ms-2 text-white">
-                Touch
+                Find
               </button>
             </div>
           </form>
