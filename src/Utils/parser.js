@@ -9,8 +9,10 @@ const parse = (xml) => {
   const icon = doc.querySelector('icon').textContent;
   const tempC = doc.querySelector('temp_c').textContent;
 
-  const temp = `${tempC} С`
+
+  const temp = `${tempC} \xB0C`
   const wind = `${(windKPH / 3.6).toFixed(2)} m/s`;
+
   const currentWeather = {
     region,
     country,
@@ -25,10 +27,14 @@ const parse = (xml) => {
   forecastDays.forEach((forecast) => {
     const iconForecast = forecast.querySelector('icon').textContent;
     const dateForecast = forecast.querySelector('date').textContent;
-    const maxTemp = forecast.querySelector('maxtemp_c').textContent;
-    const minTemp = forecast.querySelector('mintemp_c').textContent;
-    const avgTemp = forecast.querySelector('avgtemp_c').textContent;
+    const maxTempC = forecast.querySelector('maxtemp_c').textContent;
+    const minTempC = forecast.querySelector('mintemp_c').textContent;
+    const avgTempC = forecast.querySelector('avgtemp_c').textContent;
     const chanceRain = forecast.querySelector('daily_chance_of_rain').textContent;
+
+    const maxTemp = `${maxTempC} \xB0C`;
+    const minTemp = `${minTempC} \xB0C`;
+    const avgTemp = `${avgTempC} \xB0C`;
     const [year, month, day] = dateForecast.split('-');
     const date = `${day}/${month}`;
 

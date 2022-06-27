@@ -4,10 +4,9 @@ import Content from "./Components/Content.jsx"
 import getData from './Utils/getData.js'
 import parse from "./Utils/parser.js";
 
-const App = () => {
+const App = (props) => {
   const [weatherData, setWeatherData] = useState({})
   const [errorFeedback, setErrorFeedback] = useState('');
-
   const handleSubmitForm = (value, setStateCity) => {
 
     getData(value)
