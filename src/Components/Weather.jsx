@@ -1,27 +1,32 @@
 import cn from "classnames";
 import React, {useEffect, useState} from "react";
 
-const Weather = (props) => {
-  const {weatherData} = props;
+const styleIcon = {
+  width: '75px',
+  height: '75px'
+}
+
+const styleIconForecast = {
+  width: '50px',
+  height: '50px'
+}
+
+
+const Weather = ({ weatherData }) => {
   const { region, country, localTime, wind, temp, icon, forecastWeather } = weatherData;
   const [width, setStateWidth] = useState(window.innerWidth);
-
-  const styleIcon = {
-    width: '75px',
-    height: '75px'
-  }
-
-  const styleIconForecast = {
-    width: '50px',
-    height: '50px'
-  }
-
   const wrapperForecast = cn(width < 625 ? "m-5": "d-flex justify-content-between m-5 col-md-")
 
+  const getWidth = () => {
+    setStateWidth(window.innerWidth)
+  }
+
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      setStateWidth(window.innerWidth)
-    })
+    window.addEventListener('resize', getWidth)
+    
+    return () => {
+      window.removeEventListener('resize', getWidth)
+    }
   })
   
   return (

@@ -23,13 +23,13 @@ const themes = [
     id: 2
   },
   {
-    name: 'red',
-    className: 'bg-danger',
+    name: 'white',
+    className: 'bg-light',
     id: 3
   }
 ];
 
-const App = (props) => {
+const App = () => {
   const [weatherData, setWeatherData] = useState({});
   const [errorFeedback, setErrorFeedback] = useState('');
   const [currentTheme, setStateTheme] = useState(themes[0]);
@@ -39,7 +39,7 @@ const App = (props) => {
     .then((xml) => {
       const { contents } = xml.data;
       const { currentWeather, forecastWeather  } = parse(contents);
-      const {region, country, localTime, wind, temp, icon } = currentWeather;
+      const { region, country, localTime, wind, temp, icon } = currentWeather;
 
       setWeatherData({
         region,
@@ -57,7 +57,7 @@ const App = (props) => {
     .catch((error) => {
       console.log(error)
       setWeatherData({})
-      setErrorFeedback(`${value} city is not defined`)
+      setErrorFeedback(`"${value}" city is not defined`)
     }
     )
   }
@@ -66,8 +66,8 @@ const App = (props) => {
     <main className="d-flex min-vh-100 flex-column bg-dark">
       <div className="flex-grow-1 text-white">
         <ThemeContext.Provider value={{themes, currentTheme, setStateTheme}}>
-        <Form weatherData={weatherData} errorFeedback={errorFeedback}  handleSubmitForm={handleSubmitForm} />
-        <Content weatherData={weatherData} />
+          <Form weatherData={weatherData} errorFeedback={errorFeedback} handleSubmitForm={handleSubmitForm} />
+          <Content weatherData={weatherData} />
         </ThemeContext.Provider>
       </div>
     </main>

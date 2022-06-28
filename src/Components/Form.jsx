@@ -3,15 +3,16 @@ import cn from "classnames";
 import ThemeContext from "./Context/ThemeContext";
 import ThemeSwitcher from "./ThemeSwitcher.jsx";
 
-const Form = (props) => {
-  const {handleSubmitForm, errorFeedback} = props;
+const Form = ({ handleSubmitForm, errorFeedback }) => {
   const [city, setStateCity] = useState('');
-  const {currentTheme} = useContext(ThemeContext);
-  const classNamaFeedback = cn('feedback m-0 position-absolute medium', errorFeedback? 'text-danger' :'text-success')
+  const { currentTheme } = useContext(ThemeContext);
+  const { className, name } = currentTheme;
+  const classNameTheme = cn("container-fluid p-5", className);
+  const classNameFeedback = cn('feedback m-0 position-absolute medium', errorFeedback? 'text-danger' :'text-success');
+  const classNameTextColor = cn('display-5 text-center m-4', name === 'white'? 'text-dark': 'text-white')
 
   const submitForm = (e) => {
     e.preventDefault();
-
     handleSubmitForm(city, setStateCity);
   }
 
@@ -19,16 +20,12 @@ const Form = (props) => {
     setStateCity(e.target.value);
   }
 
-  const {className} = currentTheme;
-
-  const classNameTheme = cn("container-fluid p-5", className)
-
   return (
     <section className={classNameTheme}>
       <ThemeSwitcher />
       <div className="row">
         <div className="col-md-10 col-lg-5 mx-auto text-white">
-          <h1 className="display-5 text-center m-4">Weather</h1>
+          <h1 className={classNameTextColor}>Weather</h1>
           <form action="" id="form" onSubmit={submitForm}>
             <div className="row">
               <div className="col">
@@ -54,7 +51,7 @@ const Form = (props) => {
               </button>
             </div>
           </form>
-          <p className={classNamaFeedback}>{errorFeedback}</p>
+          <p className={classNameFeedback}>{errorFeedback}</p>
         </div>
       </div>
     </section>
