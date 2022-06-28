@@ -15,7 +15,7 @@ const styleIconForecast = {
 const Weather = ({ weatherData }) => {
   const { region, country, localTime, wind, temp, icon, forecastWeather } = weatherData;
   const [width, setStateWidth] = useState(window.innerWidth);
-  const wrapperForecast = cn(width < 625 ? "m-5": "d-flex justify-content-between m-5 col-md-")
+  const wrapperForecast = cn(width < 625 ? "m-5": "d-flex justify-content-between align-items-center m-5 col-md-");
 
   const getWidth = () => {
     setStateWidth(window.innerWidth)

@@ -9,7 +9,6 @@ const parse = (xml) => {
   const icon = doc.querySelector('icon').textContent;
   const tempC = doc.querySelector('temp_c').textContent;
 
-
   const temp = `${tempC} \xB0C`
   const wind = `${(windKPH / 3.6).toFixed(2)} m/s`;
 
