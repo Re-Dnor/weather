@@ -1,5 +1,5 @@
 import {isEmpty} from "lodash";
-import Weather from "./Weather";
+import Weather from "./Weather/Weather.jsx";
 
 const Content = ({ weatherData }) => {
 

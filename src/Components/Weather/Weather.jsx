@@ -1,16 +1,6 @@
 import cn from "classnames";
 import React, {useEffect, useState} from "react";
-
-const styleIcon = {
-  width: '75px',
-  height: '75px'
-}
-
-const styleIconForecast = {
-  width: '50px',
-  height: '50px'
-}
-
+import "./Weather.css";
 
 const Weather = ({ weatherData }) => {
   const { region, country, localTime, wind, temp, icon, forecastWeather } = weatherData;
@@ -32,7 +22,7 @@ const Weather = ({ weatherData }) => {
   return (
     <>
     <div>
-      <img style={styleIcon} src={icon} alt="icon weather" />
+      <img className="styleIcon" src={icon} alt="icon weather" />
       <h3>{temp} </h3>
       <h2>{region}</h2>
       <h3>{country}</h3>
@@ -42,7 +32,7 @@ const Weather = ({ weatherData }) => {
     <div className={wrapperForecast}>
       {forecastWeather.map((item, index) =>
       <div key={index}>
-        <img style={styleIconForecast} src={item.iconForecast} alt="icon weather" />
+        <img className='styleIconForecast' src={item.iconForecast} alt="icon weather" />
         <h5>Forecast: {item.date}</h5>
         <p>Average: {item.avgTemp}</p>
         <p>Max: {item.maxTemp} / Min: {item.minTemp}</p>

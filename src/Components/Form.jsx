@@ -1,7 +1,7 @@
 import React, {useState, useContext} from "react";
 import cn from "classnames";
 import ThemeContext from "./Context/ThemeContext";
-import ThemeSwitcher from "./ThemeSwitcher.jsx";
+import ThemeSwitcher from "./ThemeSwitcher/ThemeSwitcher.jsx";
 
 const Form = ({ handleSubmitForm, errorFeedback }) => {
   const [city, setStateCity] = useState('');
