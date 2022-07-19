@@ -7,6 +7,7 @@ const Form = ({ handleSubmitForm, errorFeedback }) => {
   const [city, setStateCity] = useState('');
   const { currentTheme } = useContext(ThemeContext);
   const { className, name } = currentTheme;
+  
   const classNameTheme = cn("container-fluid p-5", className);
   const classNameFeedback = cn('feedback m-0 position-absolute medium', errorFeedback? 'text-danger' :'text-success');
   const classNameTextColor = cn('display-5 text-center m-4', name === 'white'? 'text-dark': 'text-white')

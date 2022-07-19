@@ -1,7 +1,12 @@
-# [Weather](https://weather-xi-five.vercel.app/)
+### Weather app ⛅️
 
-## Описание
+Simple weather-app at React
 
-React приложение для определения прогноза погоды по введенному городу
+## [Website](https://weather-xi-five.vercel.app/)
 
-В качестве источника данных было использованно следующее апи [Weather API](https://www.weatherapi.com/)
+### Used technologies:
+
+- [React](https://reactjs.org/)
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [axios](https://axios-http.com/docs/intro)
+- [Weather API](https://www.weatherapi.com/)
