@@ -1,4 +1,4 @@
-### Weather app ⛅️
+# Weather app ⛅️
 
 Simple weather-app at React
 
